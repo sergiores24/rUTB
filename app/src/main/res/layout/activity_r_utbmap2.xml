@@ -5,5 +5,5 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="co.edu.unitecnologica.rutb.UTBMap1"
-    tools:layout="@layout/activity_utbmap1"/>
+    tools:context="co.edu.unitecnologica.rutb.rUTBMap2"
+    tools:layout="@layout/activity_r_utbmap2" />
