@@ -46,7 +46,9 @@
             android:label="@string/title_activity_utbmap1" />
         <activity
             android:name=".rUTBMap2"
-            android:label="@string/title_activity_r_utbmap2"></activity>
+            android:label="@string/title_activity_r_utbmap2" />
+        <activity android:name=".Inicio" />
+        <activity android:name=".PrincipalMenu"></activity>
     </application>
 
 </manifest>

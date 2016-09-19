@@ -3,7 +3,10 @@ package co.edu.unitecnologica.rutb;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -155,6 +158,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+
+        setDefaults("user",email,getApplicationContext());
+        setDefaults("pass",password,getApplicationContext());
 
         boolean cancel = false;
         View focusView = null;
@@ -345,6 +351,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+    }
+    public static String getDefaults(String nom, Context cntxt) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cntxt);
+        return preferences.getString(nom, null);
+    }
+
+    private void setDefaults(String nom, String cont, Context cntxt) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(cntxt);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(nom, cont);
+        editor.commit();
     }
 }
 
