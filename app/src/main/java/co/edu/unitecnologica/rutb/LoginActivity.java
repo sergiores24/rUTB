@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
@@ -193,6 +194,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent moverse= new Intent();
+            moverse.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            moverse.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            moverse.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            moverse.setClass(getApplicationContext(),PrincipalMenu.class);
+            startActivity(moverse);
         }
     }
 
